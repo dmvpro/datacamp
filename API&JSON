@@ -1,0 +1,18 @@
+# Import package
+import requests
+
+# Assign URL to variable: url
+url = 'http://chroniclingamerica.loc.gov/search/titles/results/?terms=new%20york&format=json'
+
+# Package the request, send the request and catch the response: r
+r = requests.get(url)
+
+# Decode the JSON data into a dictionary: json_data
+json_data = r.json()
+
+# Select the first element in the list json_data['items']: nyc_loc
+nyc_loc = json_data['items'][0]
+
+# Print each key-value pair in nyc_loc
+for k in nyc_loc.keys():
+    print(k + ': ', nyc_loc[k])
